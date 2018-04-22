@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>simply.CS - Internships</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <script src="/static/js/jquery-3.1.1.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" ><a href="/Logout">Logout</a></li>
+          </ul>
+        </nav>
+      </div>
+     <section>
+     <form class="form-horizontal" method="post" action="/addInternship">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add Internships</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtTitle">Position</label>
+  <div class="col-md-4">
+  <input id="txtTitle" name="inputPosition" type="text" placeholder="" class="form-control input-md">
+  </div>
+</div>
+
+    <div class="form-group">
+  <label class="col-md-4 control-label" for="txtTitle">Company</label>
+  <div class="col-md-4">
+  <input id="txtTitle" name="inputCompany" type="text" placeholder="" class="form-control input-md">
+  </div>
+</div>
+
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="txtPost">Description</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="txtPost" name="inputDescription" ></textarea>
+  </div>
+</div>
+
+
+        <div class="form-group">
+  <label class="col-md-4 control-label" for="txtTitle">Link</label>
+  <div class="col-md-4">
+  <input id="txtTitle" name="inputLink" type="text" placeholder="" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Add" />
+  </div>
+</div>
+
+</fieldset>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Description</th>
+            <th>Link</th>
+        <tr>
+    </thead>
+    {%  for internship in internships %}
+    <tr>
+        <td>{{ internship[2]}}</td>
+        <td>{{ internship[1]}}</td>
+        <td>{{ internship[3]}}</td>
+        <td> <a href={{ internship[4] }}> APPLY </a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</section>
+      <footer class="footer">
+        <p>©etaman.com 2017</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
